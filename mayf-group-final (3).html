@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAYF Group — Making A Youthful Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#B8924A;--g2:#D4A85C;--g3:#F0C878;--gd:rgba(184,146,74,.12);
+  --n0:#060B14;--n1:#0A1020;--n2:#0E162A;--n3:#141E34;--n4:#1A2640;
+  --b:rgba(184,146,74,.13);--bh:rgba(184,146,74,.32);
+  --cr:#EDE8DC;--t1:#D8D3C8;--t2:#8C8880;--t3:#525048;
+  --home:#C47A2A;--home-d:rgba(196,122,42,.1);--home-b:rgba(196,122,42,.25);
+  --dig:#2A8C6A;--dig-d:rgba(42,140,106,.1);--dig-b:rgba(42,140,106,.25);
+  --tech:#2A6AB8;--tech-d:rgba(42,106,184,.1);--tech-b:rgba(42,106,184,.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--n0);color:var(--t1);overflow-x:hidden}
+
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--g);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 72px;height:72px;background:rgba(6,11,20,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-m{font-family:'Tenor Sans',serif;font-size:26px;letter-spacing:6px;color:var(--cr)}
+.logo-m span{color:var(--g)}
+.logo-sep{width:1px;height:22px;background:var(--b)}
+.logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);font-weight:300}
+nav ul{display:flex;gap:36px;list-style:none}
+nav a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--t2);text-decoration:none;font-weight:400;transition:color .2s}
+nav a:hover{color:var(--g)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:72px;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 75% 50%,rgba(184,146,74,.05) 0%,transparent 70%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(20,40,80,.5) 0%,transparent 60%)}
+.hgrid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(var(--g) 1px,transparent 1px),linear-gradient(90deg,var(--g) 1px,transparent 1px);background-size:72px 72px}
+.hring{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(184,146,74,.07);animation:spin 50s linear infinite}
+.hring::before{content:'';position:absolute;inset:50px;border-radius:50%;border:1px solid rgba(184,146,74,.05)}
+@keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
+.hleft{position:relative;z-index:2;padding:0 72px;animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+.heye{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.heye-l{width:40px;height:1px;background:var(--g);opacity:.5}
+.heye span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--g);font-weight:300}
+.hname{font-family:'Tenor Sans',serif;font-size:clamp(72px,11vw,136px);letter-spacing:-2px;line-height:.9;color:var(--cr);margin-bottom:4px}
+.hname .g{color:var(--g)}
+.hgroup{font-family:'Tenor Sans',serif;font-size:clamp(18px,2.5vw,28px);letter-spacing:10px;color:var(--t3);margin-bottom:30px;font-weight:400}
+.hline{width:48px;height:1px;background:var(--g);opacity:.4;margin-bottom:24px}
+.htag{font-size:15px;font-weight:200;color:var(--t2);line-height:1.9;max-width:420px;margin-bottom:20px}
+.hmotto{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--g);font-weight:300;margin-bottom:48px;opacity:.7}
+.hacro{display:flex;gap:28px}
+.ac{display:flex;flex-direction:column;gap:4px}
+.acl{font-family:'Tenor Sans',serif;font-size:40px;color:var(--g);line-height:1}
+.acw{font-size:9px;letter-spacing:.5px;color:var(--t3);font-weight:300;line-height:1.5}
+.hright{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;padding:0 72px;animation:rise .9s cubic-bezier(.16,1,.3,1) .25s both}
+.hpanel{background:rgba(10,16,32,.85);backdrop-filter:blur(12px);border:1px solid var(--b);border-radius:6px;padding:36px 32px;min-width:270px}
+.hstat{padding:18px 0;border-bottom:1px solid var(--b)}
+.hstat:first-child{padding-top:0}
+.hstat:last-child{border-bottom:none;padding-bottom:0}
+.hsn{font-family:'Tenor Sans',serif;font-size:48px;color:var(--g);line-height:1;margin-bottom:4px}
+.hsl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--t3);font-weight:300}
+.hscroll{position:absolute;bottom:44px;left:72px;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.hbar{width:1px;height:56px;background:linear-gradient(to bottom,transparent,var(--g));animation:grow 1.8s ease infinite}
+@keyframes grow{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}}
+.hscroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--g);opacity:.45}
+
+/* BAND */
+.band{background:var(--n2);border-top:1px solid var(--b);border-bottom:1px solid var(--b);display:grid;grid-template-columns:repeat(4,1fr)}
+.bi{padding:32px 28px;border-right:1px solid var(--b);text-align:center;transition:background .3s}
+.bi:last-child{border-right:none}
+.bi:hover{background:var(--n3)}
+.bil{font-family:'Tenor Sans',serif;font-size:40px;color:var(--g);line-height:1;margin-bottom:5px}
+.biw{font-size:10px;letter-spacing:1px;color:var(--t2);margin-bottom:3px;font-weight:300}
+.bin{font-size:9px;color:var(--t3);line-height:1.5}
+
+/* SECTION */
+.sw{max-width:1240px;margin:0 auto;padding:0 72px}
+.sh{margin-bottom:64px}
+.she{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.shel{width:30px;height:1px;background:var(--g);opacity:.5}
+.she span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--g);font-weight:300}
+.sh h2{font-family:'Tenor Sans',serif;font-size:clamp(34px,4.5vw,56px);color:var(--cr);line-height:1.08}
+.sh h2 em{font-style:italic;color:var(--g)}
+
+/* COMPANIES */
+#companies{padding:120px 0}
+.co-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--b);border:1px solid var(--b);border-radius:8px;overflow:hidden}
+
+/* each company row */
+.co-row{display:grid;grid-template-columns:1fr 1fr;background:var(--n1);transition:background .3s;cursor:pointer;overflow:hidden;position:relative}
+.co-row:hover{background:var(--n3)}
+.co-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;opacity:0;transition:opacity .4s}
+.co-row:hover::before{opacity:1}
+.co-home::before{background:linear-gradient(to bottom,transparent,var(--home),transparent)}
+.co-dig::before{background:linear-gradient(to bottom,transparent,var(--dig),transparent)}
+.co-tech::before{background:linear-gradient(to bottom,transparent,var(--tech),transparent)}
+
+/* left content */
+.co-left{padding:56px 52px;border-right:1px solid var(--b)}
+.co-head{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.co-ico{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid;flex-shrink:0;transition:background .3s}
+.ico-home{border-color:var(--home-b);color:var(--home)}
+.ico-dig{border-color:var(--dig-b);color:var(--dig)}
+.ico-tech{border-color:var(--tech-b);color:var(--tech)}
+.co-row:hover .ico-home{background:var(--home-d)}
+.co-row:hover .ico-dig{background:var(--dig-d)}
+.co-row:hover .ico-tech{background:var(--tech-d)}
+.co-titles{}
+.co-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:300;display:block;margin-bottom:5px}
+.tag-home{color:var(--home)}
+.tag-dig{color:var(--dig)}
+.tag-tech{color:var(--tech)}
+.co-row h3{font-family:'Tenor Sans',serif;font-size:32px;color:var(--cr);line-height:1}
+.co-desc{font-size:13px;line-height:1.9;color:var(--t2);font-weight:300;margin-bottom:28px}
+.co-chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:10px;padding:4px 12px;border:1px solid var(--b);color:var(--t3);border-radius:2px;letter-spacing:.5px}
+.chip-home{border-color:var(--home-b);color:var(--home)}
+.chip-dig{border-color:var(--dig-b);color:var(--dig)}
+.chip-tech{border-color:var(--tech-b);color:var(--tech)}
+
+/* right panel */
+.co-right{padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.co-num{font-family:'Tenor Sans',serif;font-size:80px;line-height:1;margin-bottom:auto;opacity:.04}
+.num-home{color:var(--home)}
+.num-dig{color:var(--dig)}
+.num-tech{color:var(--tech)}
+.co-services h5{font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:var(--t3);margin-bottom:16px}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.svc-list li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--t2);font-weight:300}
+.svc-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.dot-home{background:var(--home)}
+.dot-dig{background:var(--dig)}
+.dot-tech{background:var(--tech)}
+.co-domain{margin-top:28px;padding-top:20px;border-top:1px solid var(--b)}
+.co-domain span{font-size:10px;letter-spacing:1px;color:var(--t3)}
+.co-domain a{display:block;font-size:13px;font-weight:400;text-decoration:none;margin-top:3px;transition:opacity .2s}
+.co-domain a:hover{opacity:.7}
+.dom-home{color:var(--home)}
+.dom-dig{color:var(--dig)}
+.dom-tech{color:var(--tech)}
+
+
+/* ORGANOGRAM */
+#structure{padding:120px 0}
+.org-wrap{overflow-x:auto;padding-bottom:24px}
+
+/* HOW WE WORK */
+#how{padding:120px 0;background:var(--n2);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:8px;overflow:hidden}
+.how-card{background:var(--n2);padding:48px 36px;transition:background .3s}
+.how-card:hover{background:var(--n3)}
+.how-n{font-family:'Tenor Sans',serif;font-size:44px;color:rgba(184,146,74,.1);line-height:1;margin-bottom:18px}
+.how-card h4{font-family:'Tenor Sans',serif;font-size:24px;color:var(--cr);margin-bottom:12px}
+.how-card p{font-size:13px;line-height:1.9;color:var(--t2);font-weight:300}
+
+/* VISION */
+#vision{padding:120px 0}
+.vis-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--b);border:1px solid var(--b);border-radius:8px;overflow:hidden}
+.vc{background:var(--n1);padding:52px 40px;transition:background .3s}
+.vc:hover{background:var(--n3)}
+.vcn{font-family:'Tenor Sans',serif;font-size:40px;color:rgba(184,146,74,.1);line-height:1;margin-bottom:18px}
+.vc h4{font-family:'Tenor Sans',serif;font-size:24px;color:var(--cr);margin-bottom:12px}
+.vc p{font-size:13px;line-height:1.9;color:var(--t2);font-weight:300}
+
+/* FOOTER */
+footer{padding:60px 72px 40px;border-top:1px solid var(--b)}
+.ft{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;padding-bottom:44px;border-bottom:1px solid var(--b)}
+.ftname{font-family:'Tenor Sans',serif;font-size:36px;letter-spacing:8px;color:var(--cr)}
+.ftname span{color:var(--g)}
+.fttag{font-size:11px;color:var(--t3);margin-top:6px;font-style:italic;font-weight:200}
+.ftcols{display:flex;gap:56px}
+.ftcol h5{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:18px;font-weight:300}
+.ftcol ul{list-style:none}
+.ftcol li{font-size:13px;color:var(--t2);margin-bottom:11px;font-weight:200;cursor:pointer;transition:color .2s}
+.ftcol li:hover{color:var(--cr)}
+.ftcol li.home{color:var(--home)}
+.ftcol li.dig{color:var(--dig)}
+.ftcol li.tech{color:var(--tech)}
+.fb{display:flex;justify-content:space-between;align-items:center}
+.fb p{font-size:11px;color:var(--t3)}
+.fb a{color:var(--g);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav{padding:0 28px}
+  nav ul{gap:18px}
+  .hero{grid-template-columns:1fr}
+  .hleft{padding:60px 28px 40px}
+  .hright{display:none}
+  .hscroll{left:28px}
+  .sw{padding:0 28px}
+  .co-row{grid-template-columns:1fr}
+  .co-right{display:none}
+  footer{padding:48px 28px 32px}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-m"><span>M</span>AYF</span>
+    <span class="logo-sep"></span>
+    <span class="logo-sub">Group</span>
+  </a>
+  <ul>
+    <li><a href="#companies">Companies</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#how">How We Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg"></div>
+  <div class="hgrid"></div>
+  <div class="hring"></div>
+
+  <div class="hleft">
+    <div class="heye">
+      <div class="heye-l"></div>
+      <span>UAE · Family Conglomerate · Ajman · Est. 2025</span>
+    </div>
+    <div class="hname"><span class="g">M</span>AYF</div>
+    <div class="hgroup">GROUP</div>
+    <div class="hline"></div>
+    <p class="htag">A diversified family conglomerate spanning home living, digital marketing, and technology — built on family, driven by purpose.</p>
+    <div class="hmotto">Making A Youthful Future</div>
+    <div class="hacro">
+      <div class="ac"><div class="acl">M</div><div class="acw">Making</div></div>
+      <div class="ac"><div class="acl">A</div><div class="acw">A</div></div>
+      <div class="ac"><div class="acl">Y</div><div class="acw">Youthful</div></div>
+      <div class="ac"><div class="acl">F</div><div class="acw">Future</div></div>
+    </div>
+  </div>
+
+  <div class="hright">
+    <div class="hpanel">
+      <div class="hstat"><div class="hsn">3</div><div class="hsl">Subsidiaries</div></div>
+      <div class="hstat"><div class="hsn">7</div><div class="hsl">Family Members</div></div>
+      <div class="hstat"><div class="hsn">UAE</div><div class="hsl">Headquarters · Ajman</div></div>
+      <div class="hstat"><div class="hsn">∞</div><div class="hsl">Making A Youthful Future</div></div>
+    </div>
+  </div>
+
+  <div class="hscroll">
+    <div class="hbar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MEANING BAND -->
+<div class="band">
+  <div class="bi"><div class="bil">M</div><div class="biw">Making</div><div class="bin">A strong foundation</div></div>
+  <div class="bi"><div class="bil">A</div><div class="biw">A</div><div class="bin">Ambition & purpose</div></div>
+  <div class="bi"><div class="bil">Y</div><div class="biw">Youthful</div><div class="bin">Forward-thinking vision</div></div>
+  <div class="bi"><div class="bil">F</div><div class="biw">Future</div><div class="bin">Built to last generations</div></div>
+</div>
+
+<!-- COMPANIES -->
+<section id="companies">
+  <div class="sw">
+    <div class="sh">
+      <div class="she"><div class="shel"></div><span>Our Portfolio</span></div>
+      <h2>Three Businesses. <em>One Family.</em></h2>
+    </div>
+    <div class="co-grid">
+
+      <!-- MAYF HOME -->
+      <div class="co-row co-home">
+        <div class="co-left">
+          <div class="co-head">
+            <div class="co-ico ico-home">🛏</div>
+            <div class="co-titles">
+              <span class="co-tag tag-home">Home Living · E-Commerce</span>
+              <h3>MAYF Home</h3>
+            </div>
+          </div>
+          <p class="co-desc">Your destination for premium mattresses and home furniture — crafted for comfort, designed for life. Shop online and get delivered across the UAE with white-glove service.</p>
+          <div class="co-chips">
+            <span class="chip chip-home">Mattresses</span>
+            <span class="chip chip-home">Home Furniture</span>
+            <span class="chip chip-home">Online Store</span>
+            <span class="chip chip-home">UAE Delivery</span>
+            <span class="chip chip-home">Interior Styling</span>
+          </div>
+        </div>
+        <div class="co-right">
+          <div class="co-num num-home">01</div>
+          <div class="co-services">
+            <h5>What We Offer</h5>
+            <ul class="svc-list">
+              <li><span class="svc-dot dot-home"></span>Memory foam & orthopaedic mattresses</li>
+              <li><span class="svc-dot dot-home"></span>Living room & bedroom furniture</li>
+              <li><span class="svc-dot dot-home"></span>Custom size & colour options</li>
+              <li><span class="svc-dot dot-home"></span>Free delivery & installation</li>
+              <li><span class="svc-dot dot-home"></span>Trial period & easy returns</li>
+            </ul>
+          </div>
+          <div class="co-domain">
+            <span>Visit us online</span>
+            <a href="#" class="dom-home">mayfhome.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAYF DIGITAL -->
+      <div class="co-row co-dig">
+        <div class="co-left">
+          <div class="co-head">
+            <div class="co-ico ico-dig">📣</div>
+            <div class="co-titles">
+              <span class="co-tag tag-dig">Digital Marketing · Consultancy</span>
+              <h3>MAYF Digital</h3>
+            </div>
+          </div>
+          <p class="co-desc">Strategic digital marketing consultancy helping businesses grow online — from brand building and social media to SEO, paid advertising, and data-driven campaigns that deliver real results.</p>
+          <div class="co-chips">
+            <span class="chip chip-dig">Social Media</span>
+            <span class="chip chip-dig">SEO & SEM</span>
+            <span class="chip chip-dig">Paid Ads</span>
+            <span class="chip chip-dig">Brand Strategy</span>
+            <span class="chip chip-dig">Content Marketing</span>
+          </div>
+        </div>
+        <div class="co-right">
+          <div class="co-num num-dig">02</div>
+          <div class="co-services">
+            <h5>What We Offer</h5>
+            <ul class="svc-list">
+              <li><span class="svc-dot dot-dig"></span>Full-service digital marketing strategy</li>
+              <li><span class="svc-dot dot-dig"></span>Google & Meta paid advertising</li>
+              <li><span class="svc-dot dot-dig"></span>SEO & content creation</li>
+              <li><span class="svc-dot dot-dig"></span>Social media management</li>
+              <li><span class="svc-dot dot-dig"></span>Analytics & performance reporting</li>
+            </ul>
+          </div>
+          <div class="co-domain">
+            <span>Work with us</span>
+            <a href="#" class="dom-dig">mayfdigital.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAYF TECH -->
+      <div class="co-row co-tech">
+        <div class="co-left">
+          <div class="co-head">
+            <div class="co-ico ico-tech">🤖</div>
+            <div class="co-titles">
+              <span class="co-tag tag-tech">Technology · AI · Development</span>
+              <h3>MAYF Tech</h3>
+            </div>
+          </div>
+          <p class="co-desc">Building intelligent digital products — custom bots, mobile apps, and enterprise platforms powered by AI and modern technology to automate, scale, and transform your business.</p>
+          <div class="co-chips">
+            <span class="chip chip-tech">AI Chatbots</span>
+            <span class="chip chip-tech">Mobile Apps</span>
+            <span class="chip chip-tech">Web Platforms</span>
+            <span class="chip chip-tech">Automation</span>
+            <span class="chip chip-tech">UI/UX Design</span>
+          </div>
+        </div>
+        <div class="co-right">
+          <div class="co-num num-tech">03</div>
+          <div class="co-services">
+            <h5>What We Offer</h5>
+            <ul class="svc-list">
+              <li><span class="svc-dot dot-tech"></span>Custom AI bots & automation</li>
+              <li><span class="svc-dot dot-tech"></span>iOS & Android app development</li>
+              <li><span class="svc-dot dot-tech"></span>Web & e-commerce platforms</li>
+              <li><span class="svc-dot dot-tech"></span>UI/UX design & prototyping</li>
+              <li><span class="svc-dot dot-tech"></span>API integrations & backend systems</li>
+            </ul>
+          </div>
+          <div class="co-domain">
+            <span>Build with us</span>
+            <a href="#" class="dom-tech">mayftech.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ORGANOGRAM -->
+<section id="structure">
+  <div class="sw">
+    <div class="sh">
+      <div class="she"><div class="shel"></div><span>Corporate Structure</span></div>
+      <h2>Group <em>Organogram</em></h2>
+    </div>
+  </div>
+  <div class="org-wrap">
+    <div style="min-width:960px;max-width:1200px;margin:0 auto;padding:0 72px">
+      <svg width="100%" viewBox="0 0 1080 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#B8924A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- BOARD -->
+        <rect x="330" y="14" width="420" height="66" rx="4" fill="#0E162A" stroke="#B8924A" stroke-width="1.5"/>
+        <rect x="330" y="14" width="6" height="66" rx="2" fill="#B8924A"/>
+        <text font-family="'Tenor Sans',serif" font-size="18" fill="#EDE8DC" x="543" y="43" text-anchor="middle" letter-spacing="5">MAYF GROUP</text>
+        <text font-family="'Outfit',sans-serif" font-size="10" font-weight="300" fill="#8C8880" x="543" y="63" text-anchor="middle" letter-spacing="2">BOARD OF DIRECTORS</text>
+
+        <line x1="540" y1="80" x2="540" y2="110" stroke="#B8924A" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+
+        <!-- CEO -->
+        <rect x="370" y="110" width="340" height="56" rx="4" fill="#141E34" stroke="#B8924A" stroke-width="1"/>
+        <text font-family="'Outfit',sans-serif" font-size="13" font-weight="500" fill="#D4A85C" x="540" y="134" text-anchor="middle">GROUP CEO</text>
+        <text font-family="'Outfit',sans-serif" font-size="10" font-weight="300" fill="#8C8880" x="540" y="153" text-anchor="middle">Chairman &amp; Founder</text>
+
+        <!-- CEO horizontal -->
+        <line x1="540" y1="166" x2="540" y2="196" stroke="#B8924A" stroke-width="1" opacity="0.5"/>
+        <line x1="180" y1="196" x2="900" y2="196" stroke="#B8924A" stroke-width="1" opacity="0.22"/>
+
+        <!-- Drops to 3 companies -->
+        <line x1="180" y1="196" x2="180" y2="216" stroke="#C47A2A" stroke-width="1" opacity="0.6"/>
+        <line x1="540" y1="196" x2="540" y2="216" stroke="#2A8C6A" stroke-width="1" opacity="0.6"/>
+        <line x1="900" y1="196" x2="900" y2="216" stroke="#2A6AB8" stroke-width="1" opacity="0.6"/>
+
+        <!-- MAYF HOME -->
+        <rect x="60" y="216" width="240" height="76" rx="4" fill="#0E100A" stroke="#C47A2A" stroke-width="1.3"/>
+        <rect x="60" y="216" width="5" height="76" rx="2" fill="#C47A2A"/>
+        <text font-family="'Tenor Sans',serif" font-size="16" fill="#D4A85C" x="182" y="246" text-anchor="middle">MAYF Home</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#8A6030" x="182" y="263" text-anchor="middle" letter-spacing="1">MATTRESS &amp; FURNITURE</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#5A4A30" x="182" y="280" text-anchor="middle">Managing Director</text>
+
+        <!-- Home sub-depts -->
+        <line x1="182" y1="292" x2="182" y2="310" stroke="#C47A2A" stroke-width="0.8" opacity="0.5"/>
+        <line x1="100" y1="310" x2="268" y2="310" stroke="#C47A2A" stroke-width="0.8" opacity="0.25"/>
+        <line x1="100" y1="310" x2="100" y2="320" stroke="#C47A2A" stroke-width="0.8" opacity="0.5"/>
+        <line x1="268" y1="310" x2="268" y2="320" stroke="#C47A2A" stroke-width="0.8" opacity="0.5"/>
+        <rect x="55" y="320" width="90" height="36" rx="3" fill="#0E100A" stroke="#C47A2A" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#C47A2A" x="100" y="334" text-anchor="middle">E-Commerce</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#7A5A30" x="100" y="347" text-anchor="middle">Manager</text>
+        <rect x="222" y="320" width="90" height="36" rx="3" fill="#0E100A" stroke="#C47A2A" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#C47A2A" x="267" y="334" text-anchor="middle">Logistics</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#7A5A30" x="267" y="347" text-anchor="middle">Manager</text>
+
+        <!-- MAYF DIGITAL -->
+        <rect x="420" y="216" width="240" height="76" rx="4" fill="#091410" stroke="#2A8C6A" stroke-width="1.3"/>
+        <rect x="420" y="216" width="5" height="76" rx="2" fill="#2A8C6A"/>
+        <text font-family="'Tenor Sans',serif" font-size="16" fill="#7ECFA0" x="542" y="246" text-anchor="middle">MAYF Digital</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#2A6A50" x="542" y="263" text-anchor="middle" letter-spacing="1">DIGITAL MARKETING</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#3A5040" x="542" y="280" text-anchor="middle">Managing Director</text>
+
+        <!-- Digital sub-depts -->
+        <line x1="540" y1="292" x2="540" y2="310" stroke="#2A8C6A" stroke-width="0.8" opacity="0.5"/>
+        <line x1="458" y1="310" x2="626" y2="310" stroke="#2A8C6A" stroke-width="0.8" opacity="0.25"/>
+        <line x1="458" y1="310" x2="458" y2="320" stroke="#2A8C6A" stroke-width="0.8" opacity="0.5"/>
+        <line x1="626" y1="310" x2="626" y2="320" stroke="#2A8C6A" stroke-width="0.8" opacity="0.5"/>
+        <rect x="413" y="320" width="90" height="36" rx="3" fill="#091410" stroke="#2A8C6A" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#2A8C6A" x="458" y="334" text-anchor="middle">Ads &amp; SEO</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#2A5040" x="458" y="347" text-anchor="middle">Manager</text>
+        <rect x="581" y="320" width="90" height="36" rx="3" fill="#091410" stroke="#2A8C6A" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#2A8C6A" x="626" y="334" text-anchor="middle">Content</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#2A5040" x="626" y="347" text-anchor="middle">Manager</text>
+
+        <!-- MAYF TECH -->
+        <rect x="780" y="216" width="240" height="76" rx="4" fill="#080E18" stroke="#2A6AB8" stroke-width="1.3"/>
+        <rect x="780" y="216" width="5" height="76" rx="2" fill="#2A6AB8"/>
+        <text font-family="'Tenor Sans',serif" font-size="16" fill="#7DC8F0" x="902" y="246" text-anchor="middle">MAYF Tech</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#1A508A" x="902" y="263" text-anchor="middle" letter-spacing="1">BOTS · APPS · AI</text>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#2A4060" x="902" y="280" text-anchor="middle">Managing Director</text>
+
+        <!-- Tech sub-depts -->
+        <line x1="900" y1="292" x2="900" y2="310" stroke="#2A6AB8" stroke-width="0.8" opacity="0.5"/>
+        <line x1="818" y1="310" x2="986" y2="310" stroke="#2A6AB8" stroke-width="0.8" opacity="0.25"/>
+        <line x1="818" y1="310" x2="818" y2="320" stroke="#2A6AB8" stroke-width="0.8" opacity="0.5"/>
+        <line x1="986" y1="310" x2="986" y2="320" stroke="#2A6AB8" stroke-width="0.8" opacity="0.5"/>
+        <rect x="773" y="320" width="90" height="36" rx="3" fill="#080E18" stroke="#2A6AB8" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#4A9FD4" x="818" y="334" text-anchor="middle">Dev &amp; QA</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#2A4060" x="818" y="347" text-anchor="middle">Manager</text>
+        <rect x="941" y="320" width="90" height="36" rx="3" fill="#080E18" stroke="#2A6AB8" stroke-width="0.6" stroke-opacity="0.5"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" fill="#4A9FD4" x="986" y="334" text-anchor="middle">AI &amp; Bots</text>
+        <text font-family="'Outfit',sans-serif" font-size="8" font-weight="300" fill="#2A4060" x="986" y="347" text-anchor="middle">Manager</text>
+
+        <!-- Shared functions strip -->
+        <line x1="60" y1="420" x2="1020" y2="420" stroke="#B8924A" stroke-width="0.5" opacity="0.1"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#525048" x="540" y="440" text-anchor="middle" letter-spacing="3">SHARED GROUP FUNCTIONS — CFO · HR · LEGAL · COMPLIANCE</text>
+
+        <!-- Legend -->
+        <rect x="60" y="455" width="8" height="8" rx="1" fill="#C47A2A"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#525048" x="74" y="464">MAYF Home</text>
+        <rect x="174" y="455" width="8" height="8" rx="1" fill="#2A8C6A"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#525048" x="188" y="464">MAYF Digital</text>
+        <rect x="290" y="455" width="8" height="8" rx="1" fill="#2A6AB8"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#525048" x="304" y="464">MAYF Tech</text>
+        <rect x="400" y="455" width="8" height="8" rx="1" fill="#B8924A"/>
+        <text font-family="'Outfit',sans-serif" font-size="9" font-weight="300" fill="#525048" x="414" y="464">Group Leadership</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="how">
+  <div class="sw">
+    <div class="sh">
+      <div class="she"><div class="shel"></div><span>Our Approach</span></div>
+      <h2>How <em>We Work</em></h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-n">01</div>
+        <h4>Family Values First</h4>
+        <p>Every decision at MAYF is guided by integrity, trust, and long-term thinking. We build businesses the way we build our family — with patience, care, and commitment to what lasts.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">02</div>
+        <h4>Specialist Businesses</h4>
+        <p>Each subsidiary operates independently with its own team, focus, and customers. This means you always deal with specialists — not generalists trying to do everything at once.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">03</div>
+        <h4>Group Synergy</h4>
+        <p>Our three businesses support each other — MAYF Tech builds tools for MAYF Home, MAYF Digital markets all three. The group is stronger together than any single business alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="sw">
+    <div class="sh">
+      <div class="she"><div class="shel"></div><span>Our Foundation</span></div>
+      <h2>Guided by <em>Purpose</em></h2>
+    </div>
+    <div class="vis-grid">
+      <div class="vc"><div class="vcn">01</div><h4>Vision</h4><p>To be the UAE's most trusted family-owned group — enriching lives through exceptional home products, marketing expertise, and technology innovation.</p></div>
+      <div class="vc"><div class="vcn">02</div><h4>Mission</h4><p>Making A Youthful Future — creating real value for our customers, our community, and our children through businesses built to last generations.</p></div>
+      <div class="vc"><div class="vcn">03</div><h4>Values</h4><p>Family. Integrity. Innovation. We grow together or not at all — and every business we build reflects the values we want our children to carry forward.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="ft">
+    <div>
+      <div class="ftname"><span>M</span>AYF <span style="font-size:18px;letter-spacing:4px;color:var(--t3)">GROUP</span></div>
+      <div class="fttag">Making A Youthful Future · Ajman, UAE</div>
+    </div>
+    <div class="ftcols">
+      <div class="ftcol">
+        <h5>Companies</h5>
+        <ul>
+          <li class="home">MAYF Home</li>
+          <li class="dig">MAYF Digital</li>
+          <li class="tech">MAYF Tech</li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Group</h5>
+        <ul>
+          <li>About MAYF</li>
+          <li>Organogram</li>
+          <li>Careers</li>
+        </ul>
+      </div>
+      <div class="ftcol">
+        <h5>Reach Us</h5>
+        <ul>
+          <li>Ajman, UAE</li>
+          <li>info@mayfgroup.com</li>
+          <li class="home">mayfhome.com</li>
+          <li class="dig">mayfdigital.com</li>
+          <li class="tech">mayftech.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fb">
+    <p>© 2025 MAYF Group. All rights reserved. · Ajman, United Arab Emirates</p>
+    <p>Enquiries: <a href="mailto:info@mayfgroup.com">info@mayfgroup.com</a></p>
+  </div>
+</footer>
+
+<script>
+  const c=document.getElementById('cur');
+  document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>
